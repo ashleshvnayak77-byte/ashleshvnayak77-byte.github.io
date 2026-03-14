@@ -20,11 +20,24 @@ padding:120px 20px;
 animation:fadeIn 2s ease-in-out;
 }
 
-h1{
-font-size:60px;
-letter-spacing:3px;
+<h1 id="name"></h1>
+
+<script>
+
+let text = "Ashlesh V Nayak";
+let i = 0;
+
+function typeWriter() {
+if (i < text.length) {
+document.getElementById("name").innerHTML += text.charAt(i);
+i++;
+setTimeout(typeWriter, 100);
+}
 }
 
+typeWriter();
+
+</script>
 section{
 padding:60px;
 }
