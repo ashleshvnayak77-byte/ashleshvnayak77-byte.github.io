@@ -3,68 +3,38 @@
 
 <head>
 
-<title>Ashlesh V Nayak</title>
+<title>Ashlesh V. Nayak</title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
 body{
 margin:0;
-font-family:monospace;
-background:linear-gradient(135deg,#020617,#0f172a);
-color:#e2e8f0;
-overflow-x:hidden;
+font-family:'Inter',sans-serif;
+background:#0f172a;
+color:#e5e7eb;
 text-align:center;
-}
-
-/* SIDE FUTURISTIC GLOW */
-
-body::before{
-content:"";
-position:fixed;
-left:-200px;
-top:0;
-width:400px;
-height:100%;
-background:radial-gradient(circle,#22d3ee33,transparent 70%);
-filter:blur(80px);
-z-index:-1;
-}
-
-body::after{
-content:"";
-position:fixed;
-right:-200px;
-top:0;
-width:400px;
-height:100%;
-background:radial-gradient(circle,#6366f133,transparent 70%);
-filter:blur(80px);
-z-index:-1;
 }
 
 /* HEADER */
 
 header{
-padding:150px 20px;
+padding:140px 20px;
 }
 
 h1{
-font-size:70px;
-background:linear-gradient(90deg,#22d3ee,#818cf8);
--webkit-background-clip:text;
-color:transparent;
-text-shadow:0 0 20px #22d3ee55;
+font-size:64px;
+color:white;
+letter-spacing:2px;
 }
 
 p{
-color:#cbd5f5;
+color:#9ca3af;
 font-size:18px;
 max-width:700px;
 margin:auto;
-line-height:1.6;
+line-height:1.7;
 }
 
 /* SECTIONS */
@@ -75,31 +45,52 @@ max-width:1000px;
 margin:auto;
 }
 
+/* HEADINGS */
+
+h2{
+font-size:32px;
+margin-bottom:30px;
+color:white;
+}
+
+/* SKILLS */
+
+.skills span{
+display:inline-block;
+margin:10px;
+padding:10px 22px;
+background:#1e293b;
+border-radius:25px;
+transition:0.3s;
+}
+
+.skills span:hover{
+background:#2563eb;
+transform:scale(1.08);
+}
+
 /* PROJECT GRID */
 
 .projects{
 display:flex;
-justify-content:center;
 flex-wrap:wrap;
+justify-content:center;
 gap:30px;
 }
 
-/* GLASS CARDS */
+/* PROJECT CARDS */
 
 .card{
-background:rgba(255,255,255,0.03);
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,0.08);
+background:#1e293b;
+border-radius:14px;
 width:280px;
-border-radius:15px;
 padding:20px;
-transition:0.4s;
+transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.05);
-border:1px solid #22d3ee;
-box-shadow:0 10px 40px #22d3ee33;
+transform:translateY(-8px);
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 .card img{
@@ -108,51 +99,32 @@ border-radius:10px;
 }
 
 .card h3{
-color:#38bdf8;
+color:white;
 }
 
-/* SKILLS */
-
-.skills span{
-display:inline-block;
-margin:10px;
-padding:10px 20px;
-border-radius:25px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-transition:0.3s;
+.card p{
+color:#cbd5f5;
 }
 
-.skills span:hover{
-background:#22d3ee;
-color:#020617;
-transform:scale(1.15);
-box-shadow:0 0 20px #22d3ee;
-}
+/* FOOTER */
 
-/* HEADINGS */
-
-h2{
-font-size:32px;
-margin-bottom:25px;
-background:linear-gradient(90deg,#38bdf8,#818cf8);
--webkit-background-clip:text;
-color:transparent;
+footer{
+margin-top:60px;
+padding:30px;
+color:#6b7280;
 }
 
 </style>
+
 </head>
 
 
 <body>
 
-<div id="particles-js"></div>
-
-<canvas id="matrix"></canvas>
-
 <header>
 
 <h1 id="name"></h1>
+
 <p>Engineering Student • Developer • Problem Solver</p>
 
 </header>
@@ -162,7 +134,15 @@ color:transparent;
 
 <h2>About Me</h2>
 
-<p>I love building futuristic software, exploring coding and creating cool developer projects.</p>
+<p>
+Yooo! 👋 I'm Ashlesh, an engineering student who’s passionate about coding, problem-solving, and building cool software projects.
+
+I love turning ideas into real applications through programming and experimenting with different technologies. Whether it’s building websites, working on software systems, or exploring new tools, I enjoy learning and creating things that actually work.
+
+For me, coding isn’t just about writing lines of code — it’s about solving problems, thinking logically, and building something meaningful from scratch.
+
+Right now I’m focused on improving my development skills, building projects, and growing toward a strong career in the tech industry 🚀
+</p>
 
 </section>
 
@@ -175,7 +155,7 @@ color:transparent;
 
 <span>C++</span>
 <span>Python</span>
-<span>Tkinter</span>
+<span>Machine Learning</span>
 <span>GitHub</span>
 
 </div>
@@ -195,7 +175,7 @@ color:transparent;
 
 <h3>Inventory Management System</h3>
 
-<p>Python Tkinter GUI project.</p>
+<p>Python Tkinter GUI system to manage items and transactions.</p>
 
 </div>
 
@@ -206,7 +186,7 @@ color:transparent;
 
 <h3>Twitter Sentiment Analysis</h3>
 
-<p>Semantic tweet analysis project.</p>
+<p>Semantic analysis of tweets to classify sentiments.</p>
 
 </div>
 
@@ -219,124 +199,40 @@ color:transparent;
 
 <h2>Contact</h2>
 
-<p>Email: yourmail@email.com</p>
+<p>Email: ashleshvnayak77@email.com</p>
 
 </section>
 
+
+<footer>
+
+<p>© 2026 Ashlesh V. Nayak</p>
+
+</footer>
 
 
 <script>
 
 /* TYPING NAME */
 
-let text="Ashlesh V Nayak";
+let text="Ashlesh V. Nayak";
 let i=0;
 
 function typing(){
+
 if(i<text.length){
+
 document.getElementById("name").innerHTML+=text.charAt(i);
+
 i++;
+
 setTimeout(typing,90);
+
 }
+
 }
 
 typing();
-
-
-
-/* PARTICLES */
-
-particlesJS("particles-js",{
-
-particles:{
-number:{value:80},
-color:{value:"#22d3ee"},
-shape:{type:"circle"},
-opacity:{value:0.5},
-size:{value:3},
-line_linked:{enable:true,color:"#22d3ee"},
-move:{enable:true,speed:2}
-}
-
-});
-
-
-
-/* MATRIX BACKGROUND */
-
-const canvas=document.getElementById("matrix");
-const ctx=canvas.getContext("2d");
-
-canvas.height=window.innerHeight;
-canvas.width=window.innerWidth;
-
-const letters="01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const fontSize=14;
-const columns=canvas.width/fontSize;
-
-const drops=[];
-
-for(let x=0;x<columns;x++)
-drops[x]=1;
-
-function draw(){
-
-ctx.fillStyle="rgba(0,0,0,0.05)";
-ctx.fillRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="#22d3ee";
-ctx.font=fontSize+"px monospace";
-
-for(let i=0;i<drops.length;i++){
-
-const text=letters.charAt(Math.floor(Math.random()*letters.length));
-
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
-drops[i]=0;
-
-drops[i]++;
-
-}
-
-}
-
-setInterval(draw,33);
-
-
-
-/* THREE JS 3D CUBE */
-
-const scene=new THREE.Scene();
-
-const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
-
-const renderer=new THREE.WebGLRenderer({alpha:true});
-renderer.setSize(window.innerWidth,window.innerHeight);
-document.body.appendChild(renderer.domElement);
-
-const geometry=new THREE.BoxGeometry();
-const material=new THREE.MeshBasicMaterial({color:0x22d3ee,wireframe:true});
-
-const cube=new THREE.Mesh(geometry,material);
-
-scene.add(cube);
-
-camera.position.z=3;
-
-function animate(){
-
-requestAnimationFrame(animate);
-
-cube.rotation.x+=0.01;
-cube.rotation.y+=0.01;
-
-renderer.render(scene,camera);
-
-}
-
-animate();
 
 </script>
 
