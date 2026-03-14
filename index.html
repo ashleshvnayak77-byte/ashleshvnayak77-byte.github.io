@@ -1,62 +1,83 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Ashlesh V. Nayak</title>
+
+<title>Ashlesh V Nayak</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
 <style>
 
 body{
 margin:0;
 font-family:monospace;
-background:#000;
+background:#020617;
 color:#e2e8f0;
 overflow-x:hidden;
 text-align:center;
 }
 
-/* MATRIX BACKGROUND */
+/* PARTICLE BACKGROUND */
 
-canvas{
+#particles-js{
 position:fixed;
-top:0;
-left:0;
+width:100%;
+height:100%;
+z-index:-3;
+}
+
+/* MATRIX CANVAS */
+
+#matrix{
+position:fixed;
 z-index:-2;
 }
 
-/* 3D CANVAS */
+/* 3D OBJECT */
 
 #threeCanvas{
 position:fixed;
-top:0;
-left:0;
 z-index:-1;
-opacity:0.25;
+opacity:0.5;
 }
 
 /* HEADER */
 
 header{
-padding:140px 20px;
+padding:150px 20px;
 }
 
 h1{
-font-size:65px;
+font-size:70px;
 color:#22d3ee;
-text-shadow:0 0 25px #22d3ee;
+text-shadow:0 0 30px #22d3ee;
 }
 
 p{
 color:#cbd5f5;
-font-size:18px;
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
-padding:60px;
+padding:80px;
 }
 
-/* PROJECT CARDS */
+/* SKILLS */
+
+.skills span{
+display:inline-block;
+margin:10px;
+padding:12px 20px;
+border:1px solid #22d3ee;
+border-radius:20px;
+box-shadow:0 0 12px #22d3ee;
+color:#38bdf8;
+}
+
+/* PROJECTS */
 
 .projects{
 display:flex;
@@ -76,7 +97,7 @@ box-shadow:0 0 15px #22d3ee;
 }
 
 .card:hover{
-transform:scale(1.1);
+transform:scale(1.1) rotate(1deg);
 box-shadow:0 0 30px #22d3ee;
 }
 
@@ -85,27 +106,9 @@ width:100%;
 border-radius:10px;
 }
 
-.card h3{
-color:#38bdf8;
-}
-
-/* SKILLS */
-
-.skills span{
-display:inline-block;
-margin:10px;
-padding:10px 20px;
-border:1px solid #22d3ee;
-border-radius:20px;
-box-shadow:0 0 10px #22d3ee;
-color:#38bdf8;
-}
-
-/* HEADINGS */
-
 h2{
 color:#22d3ee;
-text-shadow:0 0 15px #22d3ee;
+text-shadow:0 0 20px #22d3ee;
 }
 
 </style>
@@ -115,14 +118,13 @@ text-shadow:0 0 15px #22d3ee;
 
 <body>
 
-<canvas id="matrix"></canvas>
-<canvas id="threeCanvas"></canvas>
+<div id="particles-js"></div>
 
+<canvas id="matrix"></canvas>
 
 <header>
 
 <h1 id="name"></h1>
-
 <p>Engineering Student • Developer • Problem Solver</p>
 
 </header>
@@ -132,16 +134,7 @@ text-shadow:0 0 15px #22d3ee;
 
 <h2>About Me</h2>
 
-<p>Yooo! 👋 I'm Ashlesh, an engineering student who’s passionate about coding, problem-solving, and building cool software projects.
-
-I love turning ideas into real applications through programming and experimenting with different technologies. Whether it’s building websites, working on software systems, or exploring new tools, I enjoy the process of learning and creating things that actually work.
-
-For me, coding isn’t just about writing lines of code — it’s about solving problems, thinking logically, and building something meaningful from scratch. I’m always curious to learn new technologies, improve my skills, and push myself to build better and smarter projects.
-
-Right now, I’m focused on growing as a developer, exploring new areas in tech, and building projects that help me move toward a strong career in the software and technology industry.
-
-And yeah… if you made it this far — thanks for reading, dude! 😄
-Hope you enjoy checking out my work. More cool stuff coming soon 🚀</p>
+<p>I love building futuristic software, exploring coding and creating cool developer projects.</p>
 
 </section>
 
@@ -154,7 +147,7 @@ Hope you enjoy checking out my work. More cool stuff coming soon 🚀</p>
 
 <span>C++</span>
 <span>Python</span>
-<span>Machine Learning</span>
+<span>Tkinter</span>
 <span>GitHub</span>
 
 </div>
@@ -174,7 +167,7 @@ Hope you enjoy checking out my work. More cool stuff coming soon 🚀</p>
 
 <h3>Inventory Management System</h3>
 
-<p>Python Tkinter GUI system to manage items and transactions.</p>
+<p>Python Tkinter GUI project.</p>
 
 </div>
 
@@ -185,7 +178,7 @@ Hope you enjoy checking out my work. More cool stuff coming soon 🚀</p>
 
 <h3>Twitter Sentiment Analysis</h3>
 
-<p>Semantic analysis of tweets to classify sentiments.</p>
+<p>Semantic tweet analysis project.</p>
 
 </div>
 
@@ -198,7 +191,7 @@ Hope you enjoy checking out my work. More cool stuff coming soon 🚀</p>
 
 <h2>Contact</h2>
 
-<p>Email: ashleshvnayak77@email.com</p>
+<p>Email: yourmail@email.com</p>
 
 </section>
 
@@ -220,6 +213,24 @@ setTimeout(typing,90);
 }
 
 typing();
+
+
+
+/* PARTICLES */
+
+particlesJS("particles-js",{
+
+particles:{
+number:{value:80},
+color:{value:"#22d3ee"},
+shape:{type:"circle"},
+opacity:{value:0.5},
+size:{value:3},
+line_linked:{enable:true,color:"#22d3ee"},
+move:{enable:true,speed:2}
+}
+
+});
 
 
 
@@ -267,30 +278,37 @@ setInterval(draw,33);
 
 
 
-/* 3D ROTATING OBJECT */
+/* THREE JS 3D CUBE */
 
-const threeCanvas=document.getElementById("threeCanvas");
-const gl=threeCanvas.getContext("webgl");
+const scene=new THREE.Scene();
 
-threeCanvas.width=window.innerWidth;
-threeCanvas.height=window.innerHeight;
+const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
 
-let angle=0;
+const renderer=new THREE.WebGLRenderer({alpha:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-function drawCube(){
+const geometry=new THREE.BoxGeometry();
+const material=new THREE.MeshBasicMaterial({color:0x22d3ee,wireframe:true});
 
-gl.viewport(0,0,threeCanvas.width,threeCanvas.height);
+const cube=new THREE.Mesh(geometry,material);
 
-gl.clearColor(0,0,0,0);
-gl.clear(gl.COLOR_BUFFER_BIT);
+scene.add(cube);
 
-angle+=0.01;
+camera.position.z=3;
 
-requestAnimationFrame(drawCube);
+function animate(){
+
+requestAnimationFrame(animate);
+
+cube.rotation.x+=0.01;
+cube.rotation.y+=0.01;
+
+renderer.render(scene,camera);
 
 }
 
-drawCube();
+animate();
 
 </script>
 
