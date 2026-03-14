@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <title>Ashlesh V Nayak</title>
@@ -8,94 +9,233 @@
 
 body{
 margin:0;
-font-family:Arial;
-background:linear-gradient(120deg,#0f172a,#1e293b,#020617);
-color:white;
-text-align:center;
+font-family:monospace;
+background:#000;
+color:#00ffcc;
 overflow-x:hidden;
+text-align:center;
 }
+
+/* MATRIX BACKGROUND */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* HEADER */
 
 header{
-padding:120px 20px;
-animation:fadeIn 2s ease-in-out;
+padding:150px 20px;
 }
 
-<h1 id="name"></h1>
-
-<script>
-
-let text = "Ashlesh V Nayak";
-let i = 0;
-
-function typeWriter() {
-if (i < text.length) {
-document.getElementById("name").innerHTML += text.charAt(i);
-i++;
-setTimeout(typeWriter, 100);
-}
+h1{
+font-size:60px;
+color:#00ffe1;
+text-shadow:0 0 20px cyan;
 }
 
-typeWriter();
+/* SECTIONS */
 
-</script>
 section{
 padding:60px;
 }
 
+/* PROJECT CARDS */
+
+.projects{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+}
+
 .card{
-background:#111827;
-margin:20px auto;
-padding:25px;
-width:70%;
+background:#0f172a;
+border:1px solid cyan;
+width:280px;
 border-radius:15px;
+padding:20px;
 transition:0.4s;
+box-shadow:0 0 10px cyan;
 }
 
 .card:hover{
-transform:scale(1.05);
-background:#1f2937;
+transform:scale(1.1) rotate(1deg);
+box-shadow:0 0 25px cyan;
 }
 
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(50px);}
-to{opacity:1;transform:translateY(0);}
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+a{
+color:#00ffe1;
+text-decoration:none;
+}
+
+/* SKILLS */
+
+.skills span{
+display:inline-block;
+margin:10px;
+padding:10px 20px;
+border:1px solid cyan;
+border-radius:20px;
+box-shadow:0 0 10px cyan;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
+<canvas id="matrix"></canvas>
+
 <header>
-<h1>Ashlesh V Nayak</h1>
+
+<h1 id="name"></h1>
+
 <p>Engineering Student • Developer • Problem Solver</p>
+
 </header>
+
 
 <section>
 
-<div class="card">
 <h2>About Me</h2>
-<p>I am an engineering student passionate about coding, problem solving, and building software projects.</p>
-</div>
 
-<div class="card">
+<p>I am an engineering student passionate about coding, problem solving and building cool software projects.</p>
+
+</section>
+
+
+<section>
+
 <h2>Skills</h2>
-<p>C++ • Python • Tkinter • GitHub</p>
-</div>
 
-<div class="card">
-<h2>Projects</h2>
-<p>Inventory Management System</p>
-<p>Twitter Sentiment Analysis</p>
-</div>
+<div class="skills">
 
-<div class="card">
-<h2>Contact</h2>
-<p>Email: yourmail@email.com</p>
+<span>C++</span>
+<span>Python</span>
+<span>Tkinter</span>
+<span>GitHub</span>
+
 </div>
 
 </section>
 
+
+<section>
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+
+<img src="https://picsum.photos/300/200">
+
+<h3>Inventory Management System</h3>
+
+<p>Python Tkinter GUI system for managing items and transactions.</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://picsum.photos/301/200">
+
+<h3>Twitter Sentiment Analysis</h3>
+
+<p>Semantic analysis project to classify tweet sentiment.</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Contact</h2>
+
+<p>Email: yourmail@email.com</p>
+
+</section>
+
+
+
+<script>
+
+/* TYPING ANIMATION */
+
+let text = "Ashlesh V Nayak";
+let i = 0;
+
+function typing(){
+if(i < text.length){
+document.getElementById("name").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing,100);
+}
+}
+
+typing();
+
+
+
+/* MATRIX BACKGROUND */
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 14;
+const columns = canvas.width/fontSize;
+
+const drops = [];
+
+for(let x=0;x<columns;x++)
+drops[x]=1;
+
+function draw(){
+
+ctx.fillStyle="rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#00ffcc";
+ctx.font=fontSize+"px monospace";
+
+for(let i=0;i<drops.length;i++){
+
+const text=letters.charAt(Math.floor(Math.random()*letters.length));
+
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+drops[i]=0;
+
+drops[i]++;
+
+}
+
+}
+
+setInterval(draw,33);
+
+</script>
+
 </body>
+
 </html>
