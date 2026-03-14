@@ -11,7 +11,7 @@ body{
 margin:0;
 font-family:monospace;
 background:#000;
-color:#00ffcc;
+color:#e2e8f0;
 overflow-x:hidden;
 text-align:center;
 }
@@ -22,19 +22,34 @@ canvas{
 position:fixed;
 top:0;
 left:0;
+z-index:-2;
+}
+
+/* 3D CANVAS */
+
+#threeCanvas{
+position:fixed;
+top:0;
+left:0;
 z-index:-1;
+opacity:0.25;
 }
 
 /* HEADER */
 
 header{
-padding:150px 20px;
+padding:140px 20px;
 }
 
 h1{
-font-size:60px;
-color:#00ffe1;
-text-shadow:0 0 20px cyan;
+font-size:65px;
+color:#22d3ee;
+text-shadow:0 0 25px #22d3ee;
+}
+
+p{
+color:#cbd5f5;
+font-size:18px;
 }
 
 /* SECTIONS */
@@ -53,18 +68,18 @@ gap:30px;
 }
 
 .card{
-background:#0f172a;
-border:1px solid cyan;
+background:#020617;
+border:1px solid #22d3ee;
 width:280px;
 border-radius:15px;
 padding:20px;
 transition:0.4s;
-box-shadow:0 0 10px cyan;
+box-shadow:0 0 15px #22d3ee;
 }
 
 .card:hover{
-transform:scale(1.1) rotate(1deg);
-box-shadow:0 0 25px cyan;
+transform:scale(1.1);
+box-shadow:0 0 30px #22d3ee;
 }
 
 .card img{
@@ -72,9 +87,8 @@ width:100%;
 border-radius:10px;
 }
 
-a{
-color:#00ffe1;
-text-decoration:none;
+.card h3{
+color:#38bdf8;
 }
 
 /* SKILLS */
@@ -83,9 +97,17 @@ text-decoration:none;
 display:inline-block;
 margin:10px;
 padding:10px 20px;
-border:1px solid cyan;
+border:1px solid #22d3ee;
 border-radius:20px;
-box-shadow:0 0 10px cyan;
+box-shadow:0 0 10px #22d3ee;
+color:#38bdf8;
+}
+
+/* HEADINGS */
+
+h2{
+color:#22d3ee;
+text-shadow:0 0 15px #22d3ee;
 }
 
 </style>
@@ -96,6 +118,8 @@ box-shadow:0 0 10px cyan;
 <body>
 
 <canvas id="matrix"></canvas>
+<canvas id="threeCanvas"></canvas>
+
 
 <header>
 
@@ -110,7 +134,7 @@ box-shadow:0 0 10px cyan;
 
 <h2>About Me</h2>
 
-<p>I am an engineering student passionate about coding, problem solving and building cool software projects.</p>
+<p>I am an engineering student passionate about coding, problem solving and building futuristic software projects.</p>
 
 </section>
 
@@ -143,7 +167,7 @@ box-shadow:0 0 10px cyan;
 
 <h3>Inventory Management System</h3>
 
-<p>Python Tkinter GUI system for managing items and transactions.</p>
+<p>Python Tkinter GUI system to manage items and transactions.</p>
 
 </div>
 
@@ -154,7 +178,7 @@ box-shadow:0 0 10px cyan;
 
 <h3>Twitter Sentiment Analysis</h3>
 
-<p>Semantic analysis project to classify tweet sentiment.</p>
+<p>Semantic analysis of tweets to classify sentiments.</p>
 
 </div>
 
@@ -175,16 +199,16 @@ box-shadow:0 0 10px cyan;
 
 <script>
 
-/* TYPING ANIMATION */
+/* TYPING NAME */
 
-let text = "Ashlesh V Nayak";
-let i = 0;
+let text="Ashlesh V Nayak";
+let i=0;
 
 function typing(){
-if(i < text.length){
-document.getElementById("name").innerHTML += text.charAt(i);
+if(i<text.length){
+document.getElementById("name").innerHTML+=text.charAt(i);
 i++;
-setTimeout(typing,100);
+setTimeout(typing,90);
 }
 }
 
@@ -194,17 +218,17 @@ typing();
 
 /* MATRIX BACKGROUND */
 
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
+const canvas=document.getElementById("matrix");
+const ctx=canvas.getContext("2d");
 
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+canvas.height=window.innerHeight;
+canvas.width=window.innerWidth;
 
-const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const fontSize = 14;
-const columns = canvas.width/fontSize;
+const letters="01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize=14;
+const columns=canvas.width/fontSize;
 
-const drops = [];
+const drops=[];
 
 for(let x=0;x<columns;x++)
 drops[x]=1;
@@ -214,7 +238,7 @@ function draw(){
 ctx.fillStyle="rgba(0,0,0,0.05)";
 ctx.fillRect(0,0,canvas.width,canvas.height);
 
-ctx.fillStyle="#00ffcc";
+ctx.fillStyle="#22d3ee";
 ctx.font=fontSize+"px monospace";
 
 for(let i=0;i<drops.length;i++){
@@ -233,6 +257,33 @@ drops[i]++;
 }
 
 setInterval(draw,33);
+
+
+
+/* 3D ROTATING OBJECT */
+
+const threeCanvas=document.getElementById("threeCanvas");
+const gl=threeCanvas.getContext("webgl");
+
+threeCanvas.width=window.innerWidth;
+threeCanvas.height=window.innerHeight;
+
+let angle=0;
+
+function drawCube(){
+
+gl.viewport(0,0,threeCanvas.width,threeCanvas.height);
+
+gl.clearColor(0,0,0,0);
+gl.clear(gl.COLOR_BUFFER_BIT);
+
+angle+=0.01;
+
+requestAnimationFrame(drawCube);
+
+}
+
+drawCube();
 
 </script>
 
