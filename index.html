@@ -17,7 +17,7 @@ color:#e5e7eb;
 text-align:center;
 }
 
-/* TOP LEFT SOCIALS */
+/* TOP LEFT SOCIALS (UNCHANGED) */
 
 .top-socials{
 position:fixed;
@@ -142,7 +142,7 @@ border-radius:20px;
 .projects{
 display:flex;
 gap:25px;
-overflow-x:auto;   /* scroll horizontally */
+overflow-x:auto;
 padding-bottom:10px;
 }
 
@@ -160,12 +160,12 @@ transition:0.3s;
 transform:translateY(-8px);
 }
 
-/* FIX IMAGE SIZE */
+/* 🔥 FIX IMAGE SIZE (ALL SAME) */
 
 .card img{
 width:100%;
-height:160px;        /* SAME HEIGHT */
-object-fit:cover;    /* crop nicely */
+height:160px;
+object-fit:cover;
 border-radius:8px;
 }
 
@@ -183,27 +183,36 @@ color:#6b7280;
 
 <body>
 
-<!-- SOCIALS -->
+<!-- TOP LEFT SOCIALS (UNCHANGED STRUCTURE) -->
 
 <div class="top-socials">
 
 <span class="connect-text">Let's Connect</span>
 
-<a href="https://instagram.com/YOUR_USERNAME" target="_blank">
+<a href="https://instagram.com/YOUR_USERNAME" target="_blank" title="Instagram">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-<path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7z"/>
+<path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm0 7.9A3.1 3.1 0 1 0 8.9 12 3.1 3.1 0 0 0 12 15.1zm4.6-8.7a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
 </svg>
 </a>
 
-<a href="https://github.com/YOUR_USERNAME" target="_blank">
+<a href="https://twitter.com/YOUR_USERNAME" target="_blank" title="Twitter">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+<path d="M22 5.8c-.8.4-1.6.6-2.4.7a4.2 4.2 0 0 0 1.8-2.3"/>
+</svg>
+</a>
+
+<a href="https://github.com/YOUR_USERNAME" target="_blank" title="GitHub">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
 <path d="M12 .5A12 12 0 0 0 0 12.7"/>
 </svg>
 </a>
 
-<a href="mailto:ashleshvnayak77@gmail.com">
+<a href="mailto:ashleshvnayak77@gmail.com" title="Email">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-<path d="M20 4H4c-1.1 0-2 .9-2 2v12h20V6c0-1.1-.9-2-2-2z"/>
+<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 
+1.1.9 2 2 2h16c1.1 0 2-.9 
+2-2V6c0-1.1-.9-2-2-2zm0 
+4-8 5-8-5V6l8 5 8-5v2z"/>
 </svg>
 </a>
 
@@ -266,7 +275,7 @@ color:#6b7280;
 </section>
 
 <footer>
-<p>© 2026 Ashlesh</p>
+<p>© 2026 Ashlesh V. Nayak</p>
 </footer>
 
 <script>
