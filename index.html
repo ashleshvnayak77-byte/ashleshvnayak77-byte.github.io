@@ -115,12 +115,15 @@ text-align:left;
 
 .about-left, .about-right{
 flex:1;
-}
-
-.about-right{
 background:#1e293b;
 padding:20px;
 border-radius:10px;
+transition:0.3s;
+}
+
+.about-left:hover, .about-right:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* MOBILE FIX */
@@ -225,7 +228,10 @@ color:#6b7280;
 
 <a href="mailto:ashleshvnayak77@gmail.com" title="Email">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-<path d="M2 4h20v16H2V4zm10 9L4 6h16l-8 7z"/>
+<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 
+1.1.9 2 2 2h16c1.1 0 2-.9 
+2-2V6c0-1.1-.9-2-2-2zm0 
+4-8 5-8-5V6l8 5 8-5v2z"/>
 </svg>
 </a>
 
