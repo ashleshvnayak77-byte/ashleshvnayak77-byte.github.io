@@ -37,6 +37,24 @@ margin:auto;
 line-height:1.7;
 }
 
+/* RESUME BUTTON */
+
+.resume-button {
+display:inline-block;
+margin-top:20px;
+padding:12px 24px;
+background:#111827;
+color:#fff;
+font-weight:bold;
+text-decoration:none;
+border-radius:8px;
+transition:0.3s;
+}
+
+.resume-button:hover {
+background:#2563eb;
+}
+
 /* SECTIONS */
 
 section{
@@ -68,8 +86,6 @@ transition:0.3s;
 background:#2563eb;
 transform:scale(1.08);
 }
-
-
 
 /* PROJECT GRID */
 
@@ -108,6 +124,25 @@ color:white;
 color:#cbd5f5;
 }
 
+/* SOCIAL LINKS */
+
+.socials a{
+display:inline-block;
+margin:10px;
+padding:12px 22px;
+background:#1e293b;
+color:#e5e7eb;
+text-decoration:none;
+border-radius:8px;
+transition:0.3s;
+font-weight:500;
+}
+
+.socials a:hover{
+background:#2563eb;
+transform:scale(1.08);
+}
+
 /* FOOTER */
 
 footer{
@@ -120,29 +155,6 @@ color:#6b7280;
 
 </head>
 
-
-<!-- Resume Button / Link -->
-<a href="MYRESUME/Ashlesh_Resume.pdf" target="_blank" class="resume-button">View My Resume</a>
-
-<!-- Optional CSS for styling -->
-<style>
-.resume-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #0f0f0f; /* dark button */
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.resume-button:hover {
-    background: #1a73e8; /* hover color */
-    color: #fff;
-}
-</style>
-
 <body>
 
 <header>
@@ -150,6 +162,10 @@ color:#6b7280;
 <h1 id="name"></h1>
 
 <p>Engineering Student • Developer • Problem Solver</p>
+
+<a href="MYRESUME/Ashlesh_Resume.pdf" target="_blank" class="resume-button">
+View My Resume
+</a>
 
 </header>
 
@@ -163,7 +179,8 @@ Yooo! 👋 I'm Ashlesh, an engineering student currently in 4th semester at NMAM
 pursuing Information Science and Engineering. I’m passionate about coding, problem-solving, and building cool software projects.
 I love turning ideas into real applications through programming and experimenting with different technologies. 
 Whether it’s building websites, working on software systems, or exploring new tools, I enjoy learning and creating things that actually work.
-For me, coding isn’t just about writing lines of code — it’s about solving problems, thinking logically, and building something meaningful from scratch. Right now, I’m focused on improving my development skills, building projects, and growing toward a strong career in the tech industry 🚀
+For me, coding isn’t just about writing lines of code — it’s about solving problems, thinking logically, and building something meaningful from scratch. 
+Right now, I’m focused on improving my development skills, building projects, and growing toward a strong career in the tech industry 🚀
 </p>
 
 </section>
@@ -192,54 +209,86 @@ For me, coding isn’t just about writing lines of code — it’s about solving
 
 <div class="projects">
 
+<a href="https://github.com/YOUR_USERNAME/ai-resume-analyzer" target="_blank" style="text-decoration:none;">
 <div class="card">
 
 <img src="IMAGES/RESUME.PNG.png" alt="AI Resume Analyzer">
 <h3>AI RESUME ANALYSER</h3>
-
 
 <p>
 AI-powered resume analysis tool using NLP to evaluate resumes, 
 identify key skills, and suggest improvements to increase 
 recruiter shortlisting chances.
 </p>
+
 </div>
+</a>
 
 
+<a href="https://github.com/YOUR_USERNAME/twitter-semantic-analysis" target="_blank" style="text-decoration:none;">
 <div class="card">
 
 <img src="IMAGES/semantic.png" alt="Twitter Semantic Analysis">
 
 <h3>Twitter Semantic Analysis</h3>
 
-<p>This project uses NLP to analyze tweets, detect sentiment, and extract trends,
-helping understand public opinion and social media insights.</p>
+<p>
+This project uses NLP to analyze tweets, detect sentiment, and extract trends,
+helping understand public opinion and social media insights.
+</p>
 
 </div>
+</a>
+
+
+<a href="https://github.com/YOUR_USERNAME/smart-iot-warehouse" target="_blank" style="text-decoration:none;">
 <div class="card">
 
 <img src="IMAGES/smart-warehouse.jpg" alt="Smart IOT Warehouse">
 
 <h3>Smart IOT Warehouse</h3>
 
-<p>This project leverages IoT to improve storage facility management by controlling 
-pests and reducing waste. It uses motion sensors for pest detection and monitors grain quality
-and humidity, ensuring safer and more efficient storage.</p>
+<p>
+This project leverages IoT to improve storage facility management by controlling 
+pests and reducing waste using sensors and monitoring systems.
+</p>
 
 </div>
-
+</a>
 
 </div>
 
 </section>
-    
+
 
 <section>
 
-<h2>Contact</h2>
+<h2>Currently Working On</h2>
 
-<p>Email: ashleshvnayak77@gmail.com</p>
+<p>
+• Improving AI Resume Analyzer with better NLP accuracy<br>
+• Building Twitter Semantic Analysis using large-scale data<br>
+• Exploring Machine Learning and real-world applications
+</p>
 
+</section>
+
+
+<section>
+
+<h2>Let's Connect</h2>
+
+<div class="socials">
+
+<a href="https://instagram.com/YOUR_USERNAME" target="_blank">📸 Instagram</a>
+
+<a href="https://twitter.com/YOUR_USERNAME" target="_blank">🐦 Twitter</a>
+
+<a href="https://github.com/YOUR_USERNAME" target="_blank">💻 GitHub</a>
+
+<a href="mailto:ashleshvnayak77@gmail.com">✉️ Email</a>
+
+</div>
 
 </section>
 
@@ -259,17 +308,11 @@ let text="Ashlesh V. Nayak";
 let i=0;
 
 function typing(){
-
 if(i<text.length){
-
 document.getElementById("name").innerHTML+=text.charAt(i);
-
 i++;
-
 setTimeout(typing,90);
-
 }
-
 }
 
 typing();
