@@ -17,10 +17,36 @@ color:#e5e7eb;
 text-align:center;
 }
 
+/* TOP LEFT SOCIALS */
+
+.top-socials{
+position:fixed;
+top:20px;
+left:20px;
+z-index:1000;
+}
+
+.top-socials a{
+display:inline-block;
+margin-right:10px;
+padding:8px 10px;
+background:#1e293b;
+color:#e5e7eb;
+text-decoration:none;
+border-radius:6px;
+transition:0.3s;
+font-size:14px;
+}
+
+.top-socials a:hover{
+background:#2563eb;
+transform:scale(1.1);
+}
+
 /* HEADER */
 
 header{
-padding:140px 20px;
+padding:100px 20px 60px;
 }
 
 h1{
@@ -29,11 +55,13 @@ color:white;
 letter-spacing:2px;
 }
 
+/* TEXT */
+
 p{
 color:#9ca3af;
 font-size:18px;
 max-width:700px;
-margin:auto;
+margin:10px auto;
 line-height:1.7;
 }
 
@@ -58,7 +86,7 @@ background:#2563eb;
 /* SECTIONS */
 
 section{
-padding:80px 20px;
+padding:50px 20px;
 max-width:1000px;
 margin:auto;
 }
@@ -67,7 +95,7 @@ margin:auto;
 
 h2{
 font-size:32px;
-margin-bottom:30px;
+margin-bottom:20px;
 color:white;
 }
 
@@ -124,30 +152,11 @@ color:white;
 color:#cbd5f5;
 }
 
-/* SOCIAL LINKS */
-
-.socials a{
-display:inline-block;
-margin:10px;
-padding:12px 22px;
-background:#1e293b;
-color:#e5e7eb;
-text-decoration:none;
-border-radius:8px;
-transition:0.3s;
-font-weight:500;
-}
-
-.socials a:hover{
-background:#2563eb;
-transform:scale(1.08);
-}
-
 /* FOOTER */
 
 footer{
-margin-top:60px;
-padding:30px;
+margin-top:40px;
+padding:20px;
 color:#6b7280;
 }
 
@@ -156,6 +165,16 @@ color:#6b7280;
 </head>
 
 <body>
+
+<!-- TOP LEFT SOCIALS -->
+
+<div class="top-socials">
+<a href="https://instagram.com/YOUR_USERNAME" target="_blank">📸</a>
+<a href="https://twitter.com/YOUR_USERNAME" target="_blank">🐦</a>
+<a href="https://github.com/YOUR_USERNAME" target="_blank">💻</a>
+<a href="mailto:ashleshvnayak77@gmail.com">✉️</a>
+</div>
+
 
 <header>
 
@@ -276,19 +295,9 @@ pests and reducing waste using sensors and monitoring systems.
 
 <section>
 
-<h2>Let's Connect</h2>
+<h2>Contact</h2>
 
-<div class="socials">
-
-<a href="https://instagram.com/YOUR_USERNAME" target="_blank">📸 Instagram</a>
-
-<a href="https://twitter.com/YOUR_USERNAME" target="_blank">🐦 Twitter</a>
-
-<a href="https://github.com/YOUR_USERNAME" target="_blank">💻 GitHub</a>
-
-<a href="mailto:ashleshvnayak77@gmail.com">✉️ Email</a>
-
-</div>
+<p>Email: ashleshvnayak77@gmail.com</p>
 
 </section>
 
@@ -301,8 +310,6 @@ pests and reducing waste using sensors and monitoring systems.
 
 
 <script>
-
-/* TYPING NAME */
 
 let text="Ashlesh V. Nayak";
 let i=0;
