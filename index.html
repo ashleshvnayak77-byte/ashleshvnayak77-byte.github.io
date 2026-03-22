@@ -57,7 +57,6 @@ padding:100px 20px 60px;
 h1{
 font-size:64px;
 color:white;
-letter-spacing:2px;
 }
 
 /* TEXT */
@@ -70,21 +69,19 @@ margin:10px auto;
 line-height:1.7;
 }
 
-/* RESUME BUTTON */
+/* BUTTON */
 
-.resume-button {
+.resume-button{
 display:inline-block;
 margin-top:20px;
 padding:12px 24px;
 background:#111827;
 color:#fff;
-font-weight:bold;
 text-decoration:none;
 border-radius:8px;
-transition:0.3s;
 }
 
-.resume-button:hover {
+.resume-button:hover{
 background:#2563eb;
 }
 
@@ -92,28 +89,24 @@ background:#2563eb;
 
 section{
 padding:50px 20px;
-max-width:1000px;
+max-width:1100px;
 margin:auto;
 }
 
-/* HEADINGS */
-
 h2{
-font-size:32px;
-margin-bottom:20px;
 color:white;
+margin-bottom:20px;
 }
 
-/* ABOUT + CURRENTLY */
+/* ABOUT */
 
 .about-container{
 display:flex;
-justify-content:space-between;
 gap:40px;
 text-align:left;
 }
 
-.about-left, .about-right{
+.about-left,.about-right{
 flex:1;
 background:#1e293b;
 padding:20px;
@@ -121,12 +114,11 @@ border-radius:10px;
 transition:0.3s;
 }
 
-.about-left:hover, .about-right:hover{
+.about-left:hover,.about-right:hover{
 transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 
 @media(max-width:768px){
 .about-container{
@@ -140,52 +132,41 @@ text-align:center;
 .skills span{
 display:inline-block;
 margin:10px;
-padding:10px 22px;
+padding:10px 20px;
 background:#1e293b;
-border-radius:25px;
-transition:0.3s;
+border-radius:20px;
 }
 
-.skills span:hover{
-background:#2563eb;
-transform:scale(1.08);
-}
-
-/* PROJECT GRID */
+/* PROJECTS */
 
 .projects{
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
+gap:25px;
+overflow-x:auto;   /* scroll horizontally */
+padding-bottom:10px;
 }
 
-/* PROJECT CARDS */
+/* CARD */
 
 .card{
+min-width:280px;
 background:#1e293b;
-border-radius:14px;
-width:280px;
-padding:20px;
+border-radius:12px;
+padding:15px;
 transition:0.3s;
 }
 
 .card:hover{
 transform:translateY(-8px);
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
+
+/* FIX IMAGE SIZE */
 
 .card img{
 width:100%;
-border-radius:10px;
-}
-
-.card h3{
-color:white;
-}
-
-.card p{
-color:#cbd5f5;
+height:160px;        /* SAME HEIGHT */
+object-fit:cover;    /* crop nicely */
+border-radius:8px;
 }
 
 /* FOOTER */
@@ -202,136 +183,91 @@ color:#6b7280;
 
 <body>
 
-<!-- TOP LEFT SOCIALS -->
+<!-- SOCIALS -->
 
 <div class="top-socials">
 
 <span class="connect-text">Let's Connect</span>
 
-<a href="https://instagram.com/YOUR_USERNAME" target="_blank" title="Instagram">
+<a href="https://instagram.com/YOUR_USERNAME" target="_blank">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-<path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2zm0 7.9A3.1 3.1 0 1 0 8.9 12 3.1 3.1 0 0 0 12 15.1zm4.6-8.7a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
+<path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7z"/>
 </svg>
 </a>
 
-<a href="https://twitter.com/YOUR_USERNAME" target="_blank" title="Twitter">
+<a href="https://github.com/YOUR_USERNAME" target="_blank">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-<path d="M22 5.8c-.8.4-1.6.6-2.4.7a4.2 4.2 0 0 0 1.8-2.3 8.3 8.3 0 0 1-2.7 1A4.1 4.1 0 0 0 11 8.5a11.7 11.7 0 0 1-8.5-4.3 4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1a4.1 4.1 0 0 0 3.3 4 4.2 4.2 0 0 1-1.9.1 4.1 4.1 0 0 0 3.8 2.9A8.3 8.3 0 0 1 2 19.5a11.7 11.7 0 0 0 6.3 1.8c7.6 0 11.8-6.3 11.8-11.8v-.5A8.4 8.4 0 0 0 22 5.8z"/>
+<path d="M12 .5A12 12 0 0 0 0 12.7"/>
 </svg>
 </a>
 
-<a href="https://github.com/YOUR_USERNAME" target="_blank" title="GitHub">
+<a href="mailto:ashleshvnayak77@gmail.com">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-<path d="M12 .5A12 12 0 0 0 0 12.7c0 5.5 3.6 10.2 8.6 11.8.6.1.8-.2.8-.6v-2c-3.5.8-4.2-1.5-4.2-1.5-.6-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.9 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.8-.3-5.8-1.4-5.8-6.2a4.9 4.9 0 0 1 1.3-3.4 4.6 4.6 0 0 1 .1-3.4s1-.3 3.5 1.3a12 12 0 0 1 6.4 0c2.5-1.6 3.5-1.3 3.5-1.3a4.6 4.6 0 0 1 .1 3.4 4.9 4.9 0 0 1 1.3 3.4c0 4.8-3 5.9-5.8 6.2.4.3.8 1 .8 2v3c0 .4.2.7.8.6A12.2 12.2 0 0 0 24 12.7 12 12 0 0 0 12 .5z"/>
-</svg>
-</a>
-
-<a href="mailto:ashleshvnayak77@gmail.com" title="Email">
-<svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 
-1.1.9 2 2 2h16c1.1 0 2-.9 
-2-2V6c0-1.1-.9-2-2-2zm0 
-4-8 5-8-5V6l8 5 8-5v2z"/>
+<path d="M20 4H4c-1.1 0-2 .9-2 2v12h20V6c0-1.1-.9-2-2-2z"/>
 </svg>
 </a>
 
 </div>
 
-
 <header>
-
 <h1 id="name"></h1>
-
 <p>Engineering Student • Developer • Problem Solver</p>
-
-<a href="MYRESUME/Ashlesh_Resume.pdf" target="_blank" class="resume-button">
-View My Resume
-</a>
-
+<a href="MYRESUME/Ashlesh_Resume.pdf" target="_blank" class="resume-button">View Resume</a>
 </header>
-
 
 <section>
 
 <div class="about-container">
 
 <div class="about-left">
-
 <h2>About Me</h2>
-
-<p>
-Yooo! 👋 I'm Ashlesh, an engineering student at NMAM Institute of Technology, Nitte. I love building real-world projects and exploring AI 🚀
-</p>
-
+<p>I’m Ashlesh, an engineering student passionate about coding and AI 🚀</p>
 </div>
 
 <div class="about-right">
-
 <h2>Currently Working On</h2>
-
 <p>
-• Improving AI Resume Analyzer<br>
-• Building Twitter Semantic Analysis<br>
-• Exploring Machine Learning
+• Resume Analyzer<br>
+• Twitter NLP<br>
+• Machine Learning
 </p>
-
 </div>
 
 </div>
 
 </section>
 
-
 <section>
-<h2>Skills</h2>
-<div class="skills">
-<span>C++</span>
-<span>Python</span>
-<span>Machine Learning</span>
-<span>GitHub</span>
-<span>Artificial Intelligence</span>
-</div>
-</section>
 
-
-<section>
 <h2>Projects</h2>
 
 <div class="projects">
 
-<a href="https://github.com/YOUR_USERNAME/ai-resume-analyzer" target="_blank" style="text-decoration:none;">
 <div class="card">
 <img src="IMAGES/RESUME.PNG.png">
-<h3>AI RESUME ANALYSER</h3>
-<p>AI-powered resume analysis tool using NLP.</p>
+<h3>AI Resume Analyzer</h3>
+<p>NLP based resume evaluation tool</p>
 </div>
-</a>
 
-<a href="https://github.com/YOUR_USERNAME/twitter-semantic-analysis" target="_blank" style="text-decoration:none;">
 <div class="card">
 <img src="IMAGES/semantic.png">
-<h3>Twitter Semantic Analysis</h3>
-<p>Analyzes tweets to detect sentiment and trends.</p>
+<h3>Twitter Analysis</h3>
+<p>Sentiment & trend analysis</p>
 </div>
-</a>
 
-<a href="https://github.com/YOUR_USERNAME/smart-iot-warehouse" target="_blank" style="text-decoration:none;">
 <div class="card">
 <img src="IMAGES/smart-warehouse.jpg">
-<h3>Smart IOT Warehouse</h3>
-<p>IoT system for smart storage and pest control.</p>
+<h3>Smart Warehouse</h3>
+<p>IoT based system</p>
 </div>
-</a>
 
 </div>
 
 </section>
 
-
 <footer>
-<p>© 2026 Ashlesh V. Nayak</p>
+<p>© 2026 Ashlesh</p>
 </footer>
-
 
 <script>
 let text="Ashlesh V. Nayak";
@@ -340,7 +276,7 @@ function typing(){
 if(i<text.length){
 document.getElementById("name").innerHTML+=text.charAt(i);
 i++;
-setTimeout(typing,90);
+setTimeout(typing,80);
 }
 }
 typing();
