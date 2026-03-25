@@ -824,9 +824,50 @@ footer {
   .form-row { grid-template-columns: 1fr; }
   .stats-row { gap: 24px; }
 }
+  /* 🔥 FLOATING SOCIAL BAR */
+.social-bar {
+  position: fixed;
+  top: 120px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 999;
+}
+
+.social-bar a {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.25s;
+  backdrop-filter: blur(10px);
+}
+
+.social-bar a:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  transform: translateX(-4px) scale(1.05);
+  box-shadow: 0 0 15px rgba(124,108,255,0.3);
+}
 </style>
 </head>
 <body>
+  <!-- 🔥 FLOATING SOCIAL ICONS -->
+<div class="social-bar">
+  <a href="https://instagram.com/" target="_blank">📸</a>
+  <a href="https://github.com/" target="_blank">🐱</a>
+  <a href="https://twitter.com/" target="_blank">🐦</a>
+  <a href="https://linkedin.com/" target="_blank">💼</a>
+  <a href="mailto:ashleshvnayak77@gmail.com">✉️</a>
+</div>
 
 <!-- ═══ NAVBAR ═══ -->
 <nav>
