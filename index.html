@@ -84,11 +84,17 @@ nav {
 
 /* Name row — name + photo side by side */
 .name-row {
-  display: flex; align-items: center; gap: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* THIS is the key */
+  gap: 40px;
   margin-bottom: 20px;
-  opacity: 0; animation: fadeUp 0.6s 0.25s forwards;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.25s forwards;
 }
-
+.hero-name {
+  max-width: 600px;
+}
 h1.hero-name {
   font-family: var(--sans);
   font-size: clamp(52px, 7.5vw, 96px);
@@ -105,7 +111,7 @@ h1.hero-name .last {
 /* Profile photo — circle, right of name */
 .profile-photo {
   flex-shrink: 0;
-  width: 130px; height: 130px; border-radius: 50%;
+  width: 170px; height: 170px; border-radius: 50%;
   border: 2px solid var(--blue);
   background: var(--bg2);
   display: flex; align-items: center; justify-content: center;
@@ -114,8 +120,8 @@ h1.hero-name .last {
   position: relative;
 }
 .profile-photo img {  
-  width: 160px;   /* increase size */
-  height: 160px;
+  width: 100%;   /* increase size */
+  height: 100%;
   object-fit: cover;
   border-radius: 50%; 
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
