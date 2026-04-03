@@ -26,7 +26,6 @@
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--white); font-family: var(--sans); overflow-x: hidden; line-height: 1.6; }
 
-/* subtle dot bg */
 body::before {
   content: '';
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -35,7 +34,6 @@ body::before {
   mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 0%, transparent 100%);
 }
 
-/* ── NAV ───────────────────────────── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 999;
   display: flex; align-items: center; justify-content: space-between;
@@ -66,7 +64,6 @@ nav {
 .nsoc svg { width: 14px; height: 14px; fill: currentColor; display: block; }
 .nsoc:hover { color: var(--blue); border-color: rgba(79,142,247,0.4); background: var(--blue-dim); }
 
-/* ── HERO ──────────────────────────── */
 #hero {
   position: relative; z-index: 1;
   min-height: 100vh;
@@ -82,11 +79,9 @@ nav {
 }
 .hero-label::before { content: ''; width: 24px; height: 1px; background: var(--blue); }
 
-/* Name row — name + photo side by side */
 .name-row {
   display: flex;
   align-items: center;
- 
   gap: 20px;
   margin-bottom: 20px;
   opacity: 0;
@@ -107,24 +102,30 @@ h1.hero-name .last {
   display: block;
   color: var(--blue);
 }
+/* emoji reset — sits inline after "Nayak", no blue tint */
+h1.hero-name .last .emoji {
+  color: initial;
+  font-style: normal;
+}
 
-/* Profile photo — circle, right of name */
+/* FIX 1: photo size increased ~3cm, pulled back left */
 .profile-photo {
   flex-shrink: 0;
-  width: 170px; height: 170px; border-radius: 50%;
+  width: 245px; height: 245px; border-radius: 50%;
   border: 2px solid var(--blue);
   background: var(--bg2);
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
-  transform: translateX(20px);
+  margin-left: 345px;
+  transform: translateX(0);
   box-shadow: 0 0 0 4px rgba(79,142,247,0.1), 0 20px 60px rgba(0,0,0,0.4);
   position: relative;
 }
-.profile-photo img {  
-  width: 100%;   /* increase size */
+.profile-photo img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%; 
+  border-radius: 50%;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 .profile-photo .ph-placeholder {
@@ -168,7 +169,6 @@ h1.hero-name .last {
 }
 .btn-ghost:hover { border-color: rgba(79,142,247,0.4); color: var(--white); background: var(--blue-dim); }
 
-/* stat chips */
 .hero-stats {
   display: flex; gap: 32px; margin-top: 56px;
   padding-top: 28px; border-top: 1px solid var(--line);
@@ -178,7 +178,6 @@ h1.hero-name .last {
 .stat-val { font-family: var(--mono); font-size: 24px; font-weight: 500; color: var(--blue); }
 .stat-lbl { font-size: 12px; color: var(--gray); margin-top: 2px; }
 
-/* code snippet floating bottom-right */
 .code-block {
   position: absolute; right: 64px; bottom: 80px;
   font-family: var(--mono); font-size: 12px; line-height: 1.9;
@@ -199,16 +198,13 @@ h1.hero-name .last {
 @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
-/* ── DIVIDER ───────────────────────── */
 .divider { height: 1px; background: var(--line); margin: 0; }
 
-/* ── SECTION ───────────────────────── */
 .sec { position: relative; z-index: 1; padding: 100px 64px; }
 .sec-label { font-family: var(--mono); font-size: 11px; color: var(--blue); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px; }
 h2.sec-h { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; color: var(--white); margin-bottom: 48px; }
 h2.sec-h em { color: var(--blue); font-style: italic; font-family: var(--serif); }
 
-/* ── ABOUT ─────────────────────────── */
 .about-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
 .about-body p { font-size: 15px; line-height: 1.9; color: rgba(238,240,246,0.6); font-weight: 300; margin-bottom: 16px; }
 .about-body p strong { color: var(--white); font-weight: 600; }
@@ -221,7 +217,6 @@ h2.sec-h em { color: var(--blue); font-style: italic; font-family: var(--serif);
 }
 .pill:hover { color: var(--blue); border-color: rgba(79,142,247,0.4); background: var(--blue-dim); }
 
-/* skill panel */
 .skill-panel { }
 .skill-panel h3 {
   font-family: var(--mono); font-size: 11px; color: var(--gray);
@@ -244,7 +239,6 @@ h2.sec-h em { color: var(--blue); font-style: italic; font-family: var(--serif);
 }
 .tag:hover { color: var(--blue); border-color: rgba(79,142,247,0.3); background: var(--blue-dim); }
 
-/* ── EDUCATION ─────────────────────── */
 #education { background: var(--bg1); }
 .edu-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .edu-card {
@@ -260,7 +254,6 @@ h2.sec-h em { color: var(--blue); font-style: italic; font-family: var(--serif);
 .edu-deg { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
 .edu-inst { font-size: 13px; color: var(--gray); }
 
-/* ── PROJECTS ──────────────────────── */
 .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .proj-card {
   background: var(--bg1); border: 1px solid var(--line);
@@ -304,7 +297,6 @@ h2.sec-h em { color: var(--blue); font-style: italic; font-family: var(--serif);
 .brew-txt { font-family: var(--mono); font-size: 11px; color: var(--gray2); }
 .brew-txt code { color: var(--blue); display: block; margin-top: 4px; font-size: 10px; }
 
-/* ── CONTACT ───────────────────────── */
 #contact { background: var(--bg1); }
 .contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
 .contact-left p { font-size: 15px; color: var(--gray); line-height: 1.8; margin-bottom: 32px; font-weight: 300; }
@@ -322,7 +314,6 @@ h2.sec-h em { color: var(--blue); font-style: italic; font-family: var(--serif);
 .chan-lbl { font-size: 10px; color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--mono); }
 .chan-val { font-size: 13px; font-weight: 500; margin-top: 1px; }
 
-/* form */
 .cform { display: flex; flex-direction: column; gap: 14px; }
 .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .ff { display: flex; flex-direction: column; gap: 5px; }
@@ -339,7 +330,6 @@ h2.sec-h em { color: var(--blue); font-style: italic; font-family: var(--serif);
 .fsubmit { display: flex; align-items: center; justify-content: space-between; }
 .fnote { font-family: var(--mono); font-size: 11px; color: var(--gray2); }
 
-/* ── FOOTER ────────────────────────── */
 footer {
   padding: 28px 64px; border-top: 1px solid var(--line);
   display: flex; justify-content: space-between; align-items: center;
@@ -348,13 +338,12 @@ footer {
 footer a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
 footer a:hover { color: var(--blue); }
 
-/* ── RESPONSIVE ────────────────────── */
 @media (max-width: 960px) {
   nav { padding: 0 24px; }
   .nav-center { display: none; }
   #hero { padding: 90px 24px 60px; }
   .name-row { flex-direction: row; gap: 20px; }
-  .profile-photo { width: 90px; height: 90px; }
+  .profile-photo { width: 110px; height: 110px; margin-left: 0; transform: none; }
   .code-block { display: none; }
   .hero-stats { gap: 20px; }
   .sec { padding: 64px 24px; }
@@ -369,7 +358,6 @@ footer a:hover { color: var(--blue); }
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo"><span>~/</span>ashlesh</a>
   <div class="nav-center">
@@ -397,19 +385,18 @@ footer a:hover { color: var(--blue); }
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-label"> AI/ML enthusiast· 2nd Year B.Tech Information Science Student</div>
 
-  <!-- Name + Photo on same row -->
   <div class="name-row">
     <h1 class="hero-name">
       Hi, I'm Ashlesh
-      <span class="last">V. Nayak</span> 👋
+      <!-- FIX 2: emoji moved inside .last span, wrapped in .emoji to reset colour -->
+      <span class="last">V. Nayak <span class="emoji">👋</span></span>
     </h1>
-   <div class="profile-photo">
-  <img src="IMAGES/ashlesh.jpeg" alt="Ashlesh">
-</div>
+    <div class="profile-photo">
+      <img src="IMAGES/ashlesh.jpeg" alt="Ashlesh">
+    </div>
   </div>
 
   <p class="hero-sub">
@@ -426,26 +413,21 @@ AI/ML enthusiast focused on clean code, scalable solutions, and meaningful impac
     <a href="mailto:ashleshvnayak77@gmail.com" class="btn-ghost">Get in Touch</a>
     <a href="https://github.com/ashleshvnayak77-byte" target="_blank" class="btn-ghost">GitHub ↗</a>
   </div>
-
-
-  <!-- Floating code snippet -->
-  
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="sec">
   <div class="sec-label">01 — About</div>
   <h2 class="sec-h">A little about me</h2>
   <div class="about-wrap">
     <div class="about-body">
       <p>
-I’m a second-year B.Tech Information Science student with a strong interest in AI/ML and problem solving.
+I'm a second-year B.Tech Information Science student with a strong interest in AI/ML and problem solving.
 
 I enjoy building intelligent systems that address real-world challenges — from machine learning models to automation and scalable solutions.
 
 I focus on writing clean, efficient code and continuously improving my skills by working on practical projects.
 
-I believe in learning by doing, and I’m always exploring new technologies to build systems that are both impactful and reliable.
+I believe in learning by doing, and I'm always exploring new technologies to build systems that are both impactful and reliable.
 </p>
       <div class="about-links">
         <a href="https://linkedin.com/in/ashleshnayak" target="_blank" class="pill">↗ LinkedIn</a>
@@ -456,7 +438,6 @@ I believe in learning by doing, and I’m always exploring new technologies to b
 
    <div class="skill-panel">
   <h3>// Tech Stack</h3>
-  
   <div class="skill-list">
     <div class="sk"><span class="sk-dot"></span> Python</div>
     <div class="sk"><span class="sk-dot"></span> Machine Learning</div>
@@ -473,10 +454,8 @@ I believe in learning by doing, and I’m always exploring new technologies to b
 
 <div class="divider"></div>
 
-<!-- EDUCATION -->
 <section id="education" class="sec">
   <div class="sec-label">02 — Education</div>
- 
   <div class="edu-cards">
     <div class="edu-card">
       <div class="edu-yr">2024 — Present</div>
@@ -498,7 +477,6 @@ I believe in learning by doing, and I’m always exploring new technologies to b
 
 <div class="divider"></div>
 
-<!-- PROJECTS -->
 <section id="projects" class="sec">
   <div class="sec-label">03 — Projects</div>
   <h2 class="sec-h">Things I've <em>Built</em></h2>
@@ -553,7 +531,6 @@ I believe in learning by doing, and I’m always exploring new technologies to b
 
 <div class="divider"></div>
 
-<!-- CONTACT -->
 <section id="contact" class="sec">
   <div class="sec-label">04 — Contact</div>
   <h2 class="sec-h">Let's <em>Work Together</em></h2>
@@ -602,7 +579,6 @@ I believe in learning by doing, and I’m always exploring new technologies to b
 <footer>
   <span>Build. Break. Learn. Repeat 🚀</span>
   <span>© 2025 Ashlesh V. Nayak | Built with passion</span>
-  
 </footer>
 
 <script>
@@ -614,7 +590,6 @@ function send(e) {
   setTimeout(() => { n.textContent = '// All good to send'; n.style.color = ''; }, 3000);
 }
 
-// scroll reveal
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
@@ -626,7 +601,6 @@ document.querySelectorAll('.proj-card, .edu-card, .chan, .sk').forEach(el => {
   io.observe(el);
 });
 
-// active nav
 const secs = document.querySelectorAll('section[id]');
 const links = document.querySelectorAll('.nav-center a');
 window.addEventListener('scroll', () => {
