@@ -4,10 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>AshleshVNayak</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
-
 <style>
 :root {
   --bg:       #09090f;
@@ -354,83 +352,270 @@ footer a:hover { color: var(--blue); }
   .frow { grid-template-columns: 1fr; }
   footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
 }
-
 </style>
 </head>
-
 <body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo"><span>~/</span>ashlesh</a>
+  <div class="nav-center">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="https://github.com/ashleshvnayak77-byte" target="_blank" class="nsoc" title="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.5c0-6.63-5.37-12-12-12z"/></svg>
+    </a>
+    <a href="https://linkedin.com/in/ashleshnayak" target="_blank" class="nsoc" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="https://twitter.com/ashleshvnayak40" target="_blank" class="nsoc" title="X">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a href="https://instagram.com/ashlesh.nayak" target="_blank" class="nsoc" title="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="mailto:ashleshvnayak77@gmail.com" class="nsoc" title="Email">
+      <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+    </a>
+  </div>
+</nav>
 
 <!-- HERO -->
 <section id="hero">
+  <div class="hero-label"> AI/ML enthusiast· 2nd Year B.Tech Information Science Student</div>
 
+  <!-- Name + Photo on same row -->
   <div class="name-row">
     <h1 class="hero-name">
-      Hi, I'm Ashlesh
-      <span class="last">V. Nayak</span> 👋
+      Hii I'm Ashlesh
+      <span class="last">V. Nayak!!</span>👋
     </h1>
-
-    <div class="profile-photo">
-      <img src="IMAGES/ashlesh.jpeg" alt="Ashlesh">
-    </div>
+   <div class="profile-photo">
+  <img src="IMAGES/ashlesh.jpeg" alt="Ashlesh">
+</div>
   </div>
 
   <p class="hero-sub">
-    <strong>AI/ML Developer</strong><br>
-    📍based in Manipal <br> NMAMIT, ISE Batch '28
+    <strong>AI/ML Developer</strong><BR>📍based in Manipal <br> NMAMIT, ISE Batch '28
   </p>
 
   <p class="hero-desc">
     Building intelligent systems that solve real-world problems.
-    AI/ML enthusiast focused on clean code, scalable solutions, and meaningful impact.
+AI/ML enthusiast focused on clean code, scalable solutions, and meaningful impact.
   </p>
 
+  <div class="hero-actions">
+    <a href="#projects" class="btn-primary">View Projects →</a>
+    <a href="mailto:ashleshvnayak77@gmail.com" class="btn-ghost">Get in Touch</a>
+    <a href="https://github.com/ashleshvnayak77-byte" target="_blank" class="btn-ghost">GitHub ↗</a>
+  </div>
+
+
+  <!-- Floating code snippet -->
+  
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="sec">
-
   <div class="sec-label">01 — About</div>
-  <h2 class="sec-h">A little about me</h2>
-
+  <h2 class="sec-h">A little about me </h2>
   <div class="about-wrap">
-
     <div class="about-body">
-      <p>
-        I’m a second-year B.Tech Information Science student with a strong interest in AI/ML and problem solving.
-
+      <p>I’m a second-year B.Tech Information Science student with a strong interest in AI/ML and problem solving.
         I enjoy building intelligent systems that address real-world challenges — from machine learning models to automation and scalable solutions.
-
-        I focus on writing clean, efficient code and continuously improving my skills by working on practical projects.
-
-        I believe in learning by doing, and I’m always exploring new technologies to build systems that are both impactful and reliable.
-      </p>
-    </div>
-
-    <div class="skill-panel">
-      <h3>// Tech Stack</h3>
-
-      <div class="skill-list">
-        <div class="sk"><span class="sk-dot"></span> Python</div>
-        <div class="sk"><span class="sk-dot"></span> Machine Learning</div>
-        <div class="sk"><span class="sk-dot"></span> Natural Language Processing</div>
-        <div class="sk"><span class="sk-dot"></span> Data Structures & Algorithms</div>
-        <div class="sk"><span class="sk-dot"></span> Artificial Intelligence</div>
-        <div class="sk"><span class="sk-dot"></span> C++</div>
-        <div class="sk"><span class="sk-dot"></span> Git & GitHub</div>
-        <div class="sk"><span class="sk-dot"></span> Scikit-learn</div>
+I focus on writing clean, efficient code and continuously improving my skills by working on practical projects.
+        I believe in learning by doing, and I’m always exploring new technologies to build systems that are both impactful and reliable.</p>
+      <div class="about-links">
+        <a href="https://linkedin.com/in/ashleshnayak" target="_blank" class="pill">↗ LinkedIn</a>
+        <a href="https://github.com/ashleshvnayak77-byte" target="_blank" class="pill">↗ GitHub</a>
+        <a href="mailto:ashleshvnayak77@gmail.com" class="pill">✉ Email</a>
       </div>
-
     </div>
 
-  </div> <!-- FIXED: about-wrap properly closed -->
+   <div class="skill-panel">
+  <h3>// Tech Stack</h3>
+  
+  <div class="skill-list">
+    <div class="sk"><span class="sk-dot"></span> Python</div>
+    <div class="sk"><span class="sk-dot"></span> Machine Learning</div>
+    <div class="sk"><span class="sk-dot"></span> Natural Language Processing</div>
+    <div class="sk"><span class="sk-dot"></span> Data Structures & Algorithms</div>
+    <div class="sk"><span class="sk-dot"></span> Artificial Intelligence</div>
+    <div class="sk"><span class="sk-dot"></span> C++</div>
+    <div class="sk"><span class="sk-dot"></span> Git & GitHub</div>
+    <div class="sk"><span class="sk-dot"></span> Scikit-learn</div>
+  </div>
 
+</div>
 </section>
 
-<!-- FOOTER -->
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education" class="sec">
+  <div class="sec-label">02 — Education</div>
+ 
+  <div class="edu-cards">
+    <div class="edu-card">
+      <div class="edu-yr">2024 — Present</div>
+      <div class="edu-deg">B.Tech in Information Science & Engineering</div>
+      <div class="edu-inst">NMAM Institute of Technology, Nitte</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-yr">2022 — 2024</div>
+      <div class="edu-deg">PUC — PCMS</div>
+      <div class="edu-inst">Mahatma Gandhi Memorial PU College, Udupi</div>
+    </div>
+     <div class="edu-card">
+      <div class="edu-yr">2009 — 2022</div>
+      <div class="edu-deg">Schooling</div>
+      <div class="edu-inst">Madhava Kripa School, Manipal</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects" class="sec">
+  <div class="sec-label">03 — Projects</div>
+  <h2 class="sec-h">Things I've <em>Built</em></h2>
+  <div class="proj-grid">
+    <div class="proj-card">
+      <div class="proj-meta"><span class="proj-icon">🤖</span><span class="proj-num">01</span></div>
+      <div class="proj-title">Resume Analyser</div>
+      <div class="proj-desc">Parses PDF resumes, extracts keywords and skill sets using text-processing, and generates actionable optimization insights. No ML framework — just clean Python logic.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">Python</span><span class="proj-tag">PyPDF2</span><span class="proj-tag">NLP</span><span class="proj-tag">File I/O</span>
+      </div>
+      <div class="proj-links">
+        <a href="#" class="proj-link">Source ↗</a>
+        <a href="#" class="proj-link">Live Demo ↗</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-meta"><span class="proj-icon">📊</span><span class="proj-num">02</span></div>
+      <div class="proj-title">Twitter Semantic Analysis</div>
+      <div class="proj-desc">ML-based sentiment classifier — processes raw tweet text, detects tone (positive / negative / neutral), surfaces public opinion trends via a full NLP pipeline.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">Python</span><span class="proj-tag">Scikit-learn</span><span class="proj-tag">NLP</span><span class="proj-tag">ML</span>
+      </div>
+      <div class="proj-links">
+        <a href="#" class="proj-link">Source ↗</a>
+        <a href="#" class="proj-link">Live Demo ↗</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-meta"><span class="proj-icon">⚡</span><span class="proj-num">03</span></div>
+      <div class="proj-title">Smart Warehouse</div>
+      <div class="proj-desc">IoT-powered warehouse system using sensors to monitor temperature, humidity & inventory in real time — with automated anomaly alerts and optimized storage logic.</div>
+      <div class="proj-tags">
+        <span class="proj-tag">Python</span><span class="proj-tag">IoT</span><span class="proj-tag">Sensors</span><span class="proj-tag">Automation</span>
+      </div>
+      <div class="proj-links">
+        <a href="#" class="proj-link">Source ↗</a>
+      </div>
+    </div>
+
+    <div class="proj-card proj-brew">
+      <div class="brew-icon">🔮</div>
+      <div class="brew-txt">
+        Next project in progress...
+        <code>// coming_soon.py</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="sec">
+  <div class="sec-label">04 — Contact</div>
+  <h2 class="sec-h">Let's <em>Work Together</em></h2>
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <p>Open to internships, research collaborations, and interesting builds. If you're working on something in AI/ML — I'd love to hear about it.</p>
+      <div class="channels">
+        <a href="mailto:ashleshvnayak77@gmail.com" class="chan">
+          <div class="chan-icon"><svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></div>
+          <div class="chan-info"><span class="chan-lbl">Email</span><span class="chan-val">ashleshvnayak77@gmail.com</span></div>
+        </a>
+        <a href="https://linkedin.com/in/ashleshnayak" target="_blank" class="chan">
+          <div class="chan-icon"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+          <div class="chan-info"><span class="chan-lbl">LinkedIn</span><span class="chan-val">linkedin.com/in/ashleshnayak</span></div>
+        </a>
+        <a href="https://github.com/ashleshvnayak77-byte" target="_blank" class="chan">
+          <div class="chan-icon"><svg viewBox="0 0 24 24"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.5c0-6.63-5.37-12-12-12z"/></svg></div>
+          <div class="chan-info"><span class="chan-lbl">GitHub</span><span class="chan-val">ashleshvnayak77-byte</span></div>
+        </a>
+        <a href="https://twitter.com/ashleshvnayak40" target="_blank" class="chan">
+          <div class="chan-icon"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+          <div class="chan-info"><span class="chan-lbl">Twitter / X</span><span class="chan-val">@ashleshvnayak40</span></div>
+        </a>
+        <a href="https://instagram.com/ashlesh.nayak" target="_blank" class="chan">
+          <div class="chan-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+          <div class="chan-info"><span class="chan-lbl">Instagram</span><span class="chan-val">@ashlesh.nayak</span></div>
+        </a>
+      </div>
+    </div>
+
+    <form class="cform" onsubmit="send(event)">
+      <div class="frow">
+        <div class="ff"><label>Name</label><input type="text" placeholder="Your name"/></div>
+        <div class="ff"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
+      </div>
+      <div class="ff"><label>Subject</label><input type="text" placeholder="Internship / Collab / Just saying hi"/></div>
+      <div class="ff"><label>Message</label><textarea placeholder="What are you building?"></textarea></div>
+      <div class="fsubmit">
+        <span class="fnote" id="fnote">// All good to send</span>
+        <button type="submit" class="btn-primary">Send Message →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
 <footer>
-  <span>Build. Break. Learn. Repeat 🚀</span>
+  <span>Build. Break. Learn. Repeat🚀</span>
   <span>© 2025 Ashlesh V. Nayak | Built with passion</span>
+  
 </footer>
 
+<script>
+function send(e) {
+  e.preventDefault();
+  const n = document.getElementById('fnote');
+  n.textContent = '// Sent! Talk soon.';
+  n.style.color = 'var(--blue)';
+  setTimeout(() => { n.textContent = '// All good to send'; n.style.color = ''; }, 3000);
+}
+
+// scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.proj-card, .edu-card, .chan, .sk').forEach(el => {
+  el.style.opacity = '0'; el.style.transform = 'translateY(14px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s, padding-left 0.2s';
+  io.observe(el);
+});
+
+// active nav
+const secs = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-center a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  links.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--white)' : ''; });
+});
+</script>
 </body>
-</html> 
+</html>
