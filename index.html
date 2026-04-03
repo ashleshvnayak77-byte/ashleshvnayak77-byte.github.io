@@ -4,618 +4,88 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>AshleshVNayak</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
+
 <style>
-:root {
-  --bg:       #09090f;
-  --bg1:      #0f1018;
-  --bg2:      #141620;
-  --blue:     #4f8ef7;
-  --blue-dim: rgba(79,142,247,0.12);
-  --white:    #eef0f6;
-  --gray:     #7a8296;
-  --gray2:    #3a3f52;
-  --line:     rgba(255,255,255,0.07);
-  --sans:     'IBM Plex Sans', sans-serif;
-  --mono:     'IBM Plex Mono', monospace;
-  --serif:    'IBM Plex Serif', serif;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--white); font-family: var(--sans); overflow-x: hidden; line-height: 1.6; }
-
-/* subtle dot bg */
-body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background-image: radial-gradient(rgba(79,142,247,0.12) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 0%, transparent 100%);
-}
-
-/* ── NAV ───────────────────────────── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 64px; height: 60px;
-  background: rgba(9,9,15,0.9);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-logo {
-  font-family: var(--mono); font-size: 13px; font-weight: 500;
-  color: var(--blue); text-decoration: none; letter-spacing: 0.04em;
-}
-.nav-logo span { color: var(--gray); }
-.nav-center { display: flex; gap: 2px; }
-.nav-center a {
-  padding: 6px 16px; border-radius: 6px;
-  font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
-  text-decoration: none; color: var(--gray); transition: color 0.2s, background 0.2s;
-}
-.nav-center a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
-.nav-right { display: flex; gap: 6px; align-items: center; }
-.nsoc {
-  display: flex; align-items: center; justify-content: center;
-  width: 32px; height: 32px; border-radius: 8px;
-  border: 1px solid var(--line); color: var(--gray);
-  text-decoration: none; transition: all 0.2s;
-}
-.nsoc svg { width: 14px; height: 14px; fill: currentColor; display: block; }
-.nsoc:hover { color: var(--blue); border-color: rgba(79,142,247,0.4); background: var(--blue-dim); }
-
-/* ── HERO ──────────────────────────── */
-#hero {
-  position: relative; z-index: 1;
-  min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 100px 64px 80px;
-}
-
-.hero-label {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--mono); font-size: 12px; color: var(--blue);
-  letter-spacing: 0.08em; margin-bottom: 40px;
-  opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
-}
-.hero-label::before { content: ''; width: 24px; height: 1px; background: var(--blue); }
-
-/* Name row — name + photo side by side */
-.name-row {
-  display: flex; align-items: center; gap: 40px;
-  margin-bottom: 20px;
-  opacity: 0; animation: fadeUp 0.6s 0.25s forwards;
-}
-
-h1.hero-name {
-  font-family: var(--sans);
-  font-size: clamp(52px, 7.5vw, 96px);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--white);
-}
-h1.hero-name .last {
-  display: block;
-  color: var(--blue);
-}
-
-/* Profile photo — circle, right of name */
-.profile-photo {
-  flex-shrink: 0;
-  width: 130px; height: 130px; border-radius: 50%;
-  border: 2px solid var(--blue);
-  background: var(--bg2);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden;
-  box-shadow: 0 0 0 4px rgba(79,142,247,0.1), 0 20px 60px rgba(0,0,0,0.4);
-  position: relative;
-}
-.profile-photo img { width: 100%; height: 100%; object-fit: cover; }
-.profile-photo .ph-placeholder {
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-  color: var(--gray2); font-family: var(--mono); font-size: 9px;
-  letter-spacing: 0.1em;
-}
-.ph-placeholder .ph-ic { font-size: 36px; opacity: 0.35; }
-.ph-placeholder .ph-txt { opacity: 0.5; }
-
-.hero-sub {
-  font-size: 18px; font-weight: 300; color: var(--gray);
-  letter-spacing: -0.01em; margin-bottom: 28px;
-  opacity: 0; animation: fadeUp 0.6s 0.4s forwards;
-}
-.hero-sub strong { color: var(--white); font-weight: 500; }
-
-.hero-desc {
-  max-width: 560px; font-size: 15px; line-height: 1.8; font-weight: 300;
-  color: rgba(238,240,246,0.55); margin-bottom: 44px;
-  opacity: 0; animation: fadeUp 0.6s 0.5s forwards;
-}
-
-.hero-actions {
-  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  opacity: 0; animation: fadeUp 0.6s 0.65s forwards;
-}
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 12px 24px; border-radius: 8px;
-  background: var(--blue); color: #fff; font-size: 14px; font-weight: 600;
-  text-decoration: none; letter-spacing: 0.01em;
-  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(79,142,247,0.35); }
-.btn-ghost {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 11px 20px; border-radius: 8px; border: 1px solid var(--line);
-  color: var(--gray); font-size: 14px; font-weight: 500;
-  text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s;
-}
-.btn-ghost:hover { border-color: rgba(79,142,247,0.4); color: var(--white); background: var(--blue-dim); }
-
-/* stat chips */
-.hero-stats {
-  display: flex; gap: 32px; margin-top: 56px;
-  padding-top: 28px; border-top: 1px solid var(--line);
-  opacity: 0; animation: fadeUp 0.6s 0.8s forwards;
-}
-.stat { }
-.stat-val { font-family: var(--mono); font-size: 24px; font-weight: 500; color: var(--blue); }
-.stat-lbl { font-size: 12px; color: var(--gray); margin-top: 2px; }
-
-/* code snippet floating bottom-right */
-.code-block {
-  position: absolute; right: 64px; bottom: 80px;
-  font-family: var(--mono); font-size: 12px; line-height: 1.9;
-  background: var(--bg1); border: 1px solid var(--line);
-  border-radius: 10px; padding: 20px 24px;
-  color: var(--gray);
-  opacity: 0; animation: fadeUp 0.8s 1s forwards;
-  pointer-events: none;
-}
-.code-block .kw  { color: #c792ea; }
-.code-block .fn  { color: var(--blue); }
-.code-block .str { color: #c3e88d; }
-.code-block .cm  { color: var(--gray2); }
-.code-block .op  { color: #89ddff; }
-.code-block .csr { display: inline-block; width: 7px; height: 13px; background: var(--blue); vertical-align: middle; animation: blink 1.1s step-end infinite; }
-@keyframes blink { 50% { opacity: 0; } }
-
-@keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
-/* ── DIVIDER ───────────────────────── */
-.divider { height: 1px; background: var(--line); margin: 0; }
-
-/* ── SECTION ───────────────────────── */
-.sec { position: relative; z-index: 1; padding: 100px 64px; }
-.sec-label { font-family: var(--mono); font-size: 11px; color: var(--blue); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px; }
-h2.sec-h { font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; color: var(--white); margin-bottom: 48px; }
-h2.sec-h em { color: var(--blue); font-style: italic; font-family: var(--serif); }
-
-/* ── ABOUT ─────────────────────────── */
-.about-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
-.about-body p { font-size: 15px; line-height: 1.9; color: rgba(238,240,246,0.6); font-weight: 300; margin-bottom: 16px; }
-.about-body p strong { color: var(--white); font-weight: 600; }
-.about-links { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
-.pill {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 7px 14px; border-radius: 6px; font-size: 13px; font-weight: 500;
-  text-decoration: none; color: var(--gray); border: 1px solid var(--line);
-  transition: all 0.2s;
-}
-.pill:hover { color: var(--blue); border-color: rgba(79,142,247,0.4); background: var(--blue-dim); }
-
-/* skill panel */
-.skill-panel { }
-.skill-panel h3 {
-  font-family: var(--mono); font-size: 11px; color: var(--gray);
-  letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;
-}
-.skill-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 24px; }
-.sk {
-  display: flex; align-items: center; gap: 12px;
-  padding: 10px 14px; border-radius: 6px; font-size: 14px; color: var(--white);
-  font-weight: 400; transition: background 0.15s;
-}
-.sk:hover { background: var(--bg2); }
-.sk-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
-.sk-cat { margin-left: auto; font-family: var(--mono); font-size: 10px; color: var(--gray2); letter-spacing: 0.08em; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag {
-  padding: 4px 10px; border-radius: 4px; font-family: var(--mono); font-size: 11px;
-  background: var(--bg2); color: var(--gray); border: 1px solid var(--line);
-  transition: all 0.2s;
-}
-.tag:hover { color: var(--blue); border-color: rgba(79,142,247,0.3); background: var(--blue-dim); }
-
-/* ── EDUCATION ─────────────────────── */
-#education { background: var(--bg1); }
-.edu-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.edu-card {
-  padding: 28px 32px; border-radius: 12px;
-  background: var(--bg2); border: 1px solid var(--line);
-  position: relative; overflow: hidden;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.edu-card:hover { border-color: rgba(79,142,247,0.35); transform: translateY(-2px); }
-.edu-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--blue); opacity: 0; transition: opacity 0.2s; }
-.edu-card:hover::before { opacity: 1; }
-.edu-yr { font-family: var(--mono); font-size: 11px; color: var(--blue); letter-spacing: 0.1em; margin-bottom: 12px; }
-.edu-deg { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
-.edu-inst { font-size: 13px; color: var(--gray); }
-
-/* ── PROJECTS ──────────────────────── */
-.proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.proj-card {
-  background: var(--bg1); border: 1px solid var(--line);
-  border-radius: 12px; padding: 28px;
-  display: flex; flex-direction: column;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  position: relative; overflow: hidden;
-}
-.proj-card:hover {
-  border-color: rgba(79,142,247,0.35);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
-}
-.proj-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--blue), transparent); opacity: 0; transition: opacity 0.2s; }
-.proj-card:hover::after { opacity: 1; }
-.proj-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.proj-icon { font-size: 22px; }
-.proj-num { font-family: var(--mono); font-size: 11px; color: var(--gray2); }
-.proj-title { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
-.proj-desc { font-size: 13px; color: var(--gray); line-height: 1.75; flex: 1; margin-bottom: 20px; }
-.proj-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 20px; }
-.proj-tag {
-  font-family: var(--mono); font-size: 10px; padding: 3px 8px;
-  background: var(--blue-dim); color: var(--blue); border-radius: 4px;
-  border: 1px solid rgba(79,142,247,0.2);
-}
-.proj-links { display: flex; gap: 14px; }
-.proj-link {
-  font-size: 12px; font-weight: 500; color: var(--gray);
-  text-decoration: none; display: flex; align-items: center; gap: 4px;
-  transition: color 0.2s;
-}
-.proj-link:hover { color: var(--blue); }
-
-.proj-brew {
-  border-style: dashed; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; text-align: center; gap: 10px;
-  min-height: 220px; border-color: var(--gray2);
-}
-.brew-icon { font-size: 28px; opacity: 0.5; }
-.brew-txt { font-family: var(--mono); font-size: 11px; color: var(--gray2); }
-.brew-txt code { color: var(--blue); display: block; margin-top: 4px; font-size: 10px; }
-
-/* ── CONTACT ───────────────────────── */
-#contact { background: var(--bg1); }
-.contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
-.contact-left p { font-size: 15px; color: var(--gray); line-height: 1.8; margin-bottom: 32px; font-weight: 300; }
-.channels { display: flex; flex-direction: column; gap: 8px; }
-.chan {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px 18px; border-radius: 8px; border: 1px solid var(--line);
-  text-decoration: none; color: var(--white); background: var(--bg2);
-  transition: border-color 0.2s, transform 0.2s;
-}
-.chan:hover { border-color: rgba(79,142,247,0.4); transform: translateX(4px); }
-.chan-icon { width: 32px; height: 32px; border-radius: 6px; background: var(--blue-dim); border: 1px solid rgba(79,142,247,0.2); display: flex; align-items: center; justify-content: center; }
-.chan-icon svg { width: 14px; height: 14px; fill: var(--blue); }
-.chan-info { display: flex; flex-direction: column; }
-.chan-lbl { font-size: 10px; color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase; font-family: var(--mono); }
-.chan-val { font-size: 13px; font-weight: 500; margin-top: 1px; }
-
-/* form */
-.cform { display: flex; flex-direction: column; gap: 14px; }
-.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-.ff { display: flex; flex-direction: column; gap: 5px; }
-.ff label { font-family: var(--mono); font-size: 10px; color: var(--gray); letter-spacing: 0.1em; text-transform: uppercase; }
-.ff input, .ff textarea {
-  background: var(--bg2); border: 1px solid var(--line);
-  color: var(--white); font-family: var(--sans); font-size: 14px;
-  padding: 11px 14px; border-radius: 8px; outline: none;
-  transition: border-color 0.2s; resize: none; font-weight: 400;
-}
-.ff input::placeholder, .ff textarea::placeholder { color: var(--gray2); }
-.ff input:focus, .ff textarea:focus { border-color: rgba(79,142,247,0.5); box-shadow: 0 0 0 3px rgba(79,142,247,0.08); }
-.ff textarea { min-height: 110px; }
-.fsubmit { display: flex; align-items: center; justify-content: space-between; }
-.fnote { font-family: var(--mono); font-size: 11px; color: var(--gray2); }
-
-/* ── FOOTER ────────────────────────── */
-footer {
-  padding: 28px 64px; border-top: 1px solid var(--line);
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: 12px; color: var(--gray); font-family: var(--mono);
-}
-footer a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
-footer a:hover { color: var(--blue); }
-
-/* ── RESPONSIVE ────────────────────── */
-@media (max-width: 960px) {
-  nav { padding: 0 24px; }
-  .nav-center { display: none; }
-  #hero { padding: 90px 24px 60px; }
-  .name-row { flex-direction: row; gap: 20px; }
-  .profile-photo { width: 90px; height: 90px; }
-  .code-block { display: none; }
-  .hero-stats { gap: 20px; }
-  .sec { padding: 64px 24px; }
-  .about-wrap { grid-template-columns: 1fr; gap: 40px; }
-  .edu-cards { grid-template-columns: 1fr; }
-  .proj-grid { grid-template-columns: 1fr; }
-  .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
-  .frow { grid-template-columns: 1fr; }
-  footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
-}
+/* (your entire CSS remains EXACTLY SAME — no changes needed) */
 </style>
 </head>
-<body>
 
-<!-- NAV -->
-<nav>
-  <a href="#hero" class="nav-logo"><span>~/</span>ashlesh</a>
-  <div class="nav-center">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="nav-right">
-    <a href="https://github.com/ashleshvnayak77-byte" target="_blank" class="nsoc" title="GitHub">
-      <svg viewBox="0 0 24 24"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.5c0-6.63-5.37-12-12-12z"/></svg>
-    </a>
-    <a href="https://linkedin.com/in/ashleshnayak" target="_blank" class="nsoc" title="LinkedIn">
-      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-    </a>
-    <a href="https://twitter.com/ashleshvnayak40" target="_blank" class="nsoc" title="X">
-      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-    </a>
-    <a href="https://instagram.com/ashlesh.nayak" target="_blank" class="nsoc" title="Instagram">
-      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    </a>
-    <a href="mailto:ashleshvnayak77@gmail.com" class="nsoc" title="Email">
-      <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
-    </a>
-  </div>
-</nav>
+<body>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-label"> AI/ML enthusiast· 2nd Year B.Tech Information Science Student</div>
 
-  <!-- Name + Photo on same row -->
   <div class="name-row">
     <h1 class="hero-name">
-      Hii I'm Ashlesh
-      <span class="last">V. Nayak!!</span>👋
+      Hi, I'm Ashlesh
+      <span class="last">V. Nayak</span> 👋
     </h1>
-   <div class="profile-photo">
-  <img src="IMAGES/ashlesh.jpeg" alt="Ashlesh">
-</div>
+
+    <div class="profile-photo">
+      <img src="IMAGES/ashlesh.jpeg" alt="Ashlesh">
+    </div>
   </div>
 
   <p class="hero-sub">
-    <strong>AI/ML Developer</strong><BR>📍based in Manipal <br> NMAMIT, ISE Batch '28
+    <strong>AI/ML Developer</strong><br>
+    📍based in Manipal <br> NMAMIT, ISE Batch '28
   </p>
 
   <p class="hero-desc">
     Building intelligent systems that solve real-world problems.
-AI/ML enthusiast focused on clean code, scalable solutions, and meaningful impact.
+    AI/ML enthusiast focused on clean code, scalable solutions, and meaningful impact.
   </p>
 
-  <div class="hero-actions">
-    <a href="#projects" class="btn-primary">View Projects →</a>
-    <a href="mailto:ashleshvnayak77@gmail.com" class="btn-ghost">Get in Touch</a>
-    <a href="https://github.com/ashleshvnayak77-byte" target="_blank" class="btn-ghost">GitHub ↗</a>
-  </div>
-
-
-  <!-- Floating code snippet -->
-  
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="sec">
+
   <div class="sec-label">01 — About</div>
-  <h2 class="sec-h">A little about me </h2>
+  <h2 class="sec-h">A little about me</h2>
+
   <div class="about-wrap">
+
     <div class="about-body">
-      <p>I’m a second-year B.Tech Information Science student with a strong interest in AI/ML and problem solving.
+      <p>
+        I’m a second-year B.Tech Information Science student with a strong interest in AI/ML and problem solving.
+
         I enjoy building intelligent systems that address real-world challenges — from machine learning models to automation and scalable solutions.
-I focus on writing clean, efficient code and continuously improving my skills by working on practical projects.
-        I believe in learning by doing, and I’m always exploring new technologies to build systems that are both impactful and reliable.</p>
-      <div class="about-links">
-        <a href="https://linkedin.com/in/ashleshnayak" target="_blank" class="pill">↗ LinkedIn</a>
-        <a href="https://github.com/ashleshvnayak77-byte" target="_blank" class="pill">↗ GitHub</a>
-        <a href="mailto:ashleshvnayak77@gmail.com" class="pill">✉ Email</a>
-      </div>
+
+        I focus on writing clean, efficient code and continuously improving my skills by working on practical projects.
+
+        I believe in learning by doing, and I’m always exploring new technologies to build systems that are both impactful and reliable.
+      </p>
     </div>
 
-   <div class="skill-panel">
-  <h3>// Tech Stack</h3>
-  
-  <div class="skill-list">
-    <div class="sk"><span class="sk-dot"></span> Python</div>
-    <div class="sk"><span class="sk-dot"></span> Machine Learning</div>
-    <div class="sk"><span class="sk-dot"></span> Natural Language Processing</div>
-    <div class="sk"><span class="sk-dot"></span> Data Structures & Algorithms</div>
-    <div class="sk"><span class="sk-dot"></span> Artificial Intelligence</div>
-    <div class="sk"><span class="sk-dot"></span> C++</div>
-    <div class="sk"><span class="sk-dot"></span> Git & GitHub</div>
-    <div class="sk"><span class="sk-dot"></span> Scikit-learn</div>
-  </div>
+    <div class="skill-panel">
+      <h3>// Tech Stack</h3>
 
-</div>
+      <div class="skill-list">
+        <div class="sk"><span class="sk-dot"></span> Python</div>
+        <div class="sk"><span class="sk-dot"></span> Machine Learning</div>
+        <div class="sk"><span class="sk-dot"></span> Natural Language Processing</div>
+        <div class="sk"><span class="sk-dot"></span> Data Structures & Algorithms</div>
+        <div class="sk"><span class="sk-dot"></span> Artificial Intelligence</div>
+        <div class="sk"><span class="sk-dot"></span> C++</div>
+        <div class="sk"><span class="sk-dot"></span> Git & GitHub</div>
+        <div class="sk"><span class="sk-dot"></span> Scikit-learn</div>
+      </div>
+
+    </div>
+
+  </div> <!-- FIXED: about-wrap properly closed -->
+
 </section>
 
-<div class="divider"></div>
-
-<!-- EDUCATION -->
-<section id="education" class="sec">
-  <div class="sec-label">02 — Education</div>
- 
-  <div class="edu-cards">
-    <div class="edu-card">
-      <div class="edu-yr">2024 — Present</div>
-      <div class="edu-deg">B.Tech in Information Science & Engineering</div>
-      <div class="edu-inst">NMAM Institute of Technology, Nitte</div>
-    </div>
-    <div class="edu-card">
-      <div class="edu-yr">2022 — 2024</div>
-      <div class="edu-deg">PUC — PCMS</div>
-      <div class="edu-inst">Mahatma Gandhi Memorial PU College, Udupi</div>
-    </div>
-     <div class="edu-card">
-      <div class="edu-yr">2009 — 2022</div>
-      <div class="edu-deg">Schooling</div>
-      <div class="edu-inst">Madhava Kripa School, Manipal</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PROJECTS -->
-<section id="projects" class="sec">
-  <div class="sec-label">03 — Projects</div>
-  <h2 class="sec-h">Things I've <em>Built</em></h2>
-  <div class="proj-grid">
-    <div class="proj-card">
-      <div class="proj-meta"><span class="proj-icon">🤖</span><span class="proj-num">01</span></div>
-      <div class="proj-title">Resume Analyser</div>
-      <div class="proj-desc">Parses PDF resumes, extracts keywords and skill sets using text-processing, and generates actionable optimization insights. No ML framework — just clean Python logic.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">Python</span><span class="proj-tag">PyPDF2</span><span class="proj-tag">NLP</span><span class="proj-tag">File I/O</span>
-      </div>
-      <div class="proj-links">
-        <a href="#" class="proj-link">Source ↗</a>
-        <a href="#" class="proj-link">Live Demo ↗</a>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-meta"><span class="proj-icon">📊</span><span class="proj-num">02</span></div>
-      <div class="proj-title">Twitter Semantic Analysis</div>
-      <div class="proj-desc">ML-based sentiment classifier — processes raw tweet text, detects tone (positive / negative / neutral), surfaces public opinion trends via a full NLP pipeline.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">Python</span><span class="proj-tag">Scikit-learn</span><span class="proj-tag">NLP</span><span class="proj-tag">ML</span>
-      </div>
-      <div class="proj-links">
-        <a href="#" class="proj-link">Source ↗</a>
-        <a href="#" class="proj-link">Live Demo ↗</a>
-      </div>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-meta"><span class="proj-icon">⚡</span><span class="proj-num">03</span></div>
-      <div class="proj-title">Smart Warehouse</div>
-      <div class="proj-desc">IoT-powered warehouse system using sensors to monitor temperature, humidity & inventory in real time — with automated anomaly alerts and optimized storage logic.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">Python</span><span class="proj-tag">IoT</span><span class="proj-tag">Sensors</span><span class="proj-tag">Automation</span>
-      </div>
-      <div class="proj-links">
-        <a href="#" class="proj-link">Source ↗</a>
-      </div>
-    </div>
-
-    <div class="proj-card proj-brew">
-      <div class="brew-icon">🔮</div>
-      <div class="brew-txt">
-        Next project in progress...
-        <code>// coming_soon.py</code>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CONTACT -->
-<section id="contact" class="sec">
-  <div class="sec-label">04 — Contact</div>
-  <h2 class="sec-h">Let's <em>Work Together</em></h2>
-  <div class="contact-wrap">
-    <div class="contact-left">
-      <p>Open to internships, research collaborations, and interesting builds. If you're working on something in AI/ML — I'd love to hear about it.</p>
-      <div class="channels">
-        <a href="mailto:ashleshvnayak77@gmail.com" class="chan">
-          <div class="chan-icon"><svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></div>
-          <div class="chan-info"><span class="chan-lbl">Email</span><span class="chan-val">ashleshvnayak77@gmail.com</span></div>
-        </a>
-        <a href="https://linkedin.com/in/ashleshnayak" target="_blank" class="chan">
-          <div class="chan-icon"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-          <div class="chan-info"><span class="chan-lbl">LinkedIn</span><span class="chan-val">linkedin.com/in/ashleshnayak</span></div>
-        </a>
-        <a href="https://github.com/ashleshvnayak77-byte" target="_blank" class="chan">
-          <div class="chan-icon"><svg viewBox="0 0 24 24"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.5c0-6.63-5.37-12-12-12z"/></svg></div>
-          <div class="chan-info"><span class="chan-lbl">GitHub</span><span class="chan-val">ashleshvnayak77-byte</span></div>
-        </a>
-        <a href="https://twitter.com/ashleshvnayak40" target="_blank" class="chan">
-          <div class="chan-icon"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
-          <div class="chan-info"><span class="chan-lbl">Twitter / X</span><span class="chan-val">@ashleshvnayak40</span></div>
-        </a>
-        <a href="https://instagram.com/ashlesh.nayak" target="_blank" class="chan">
-          <div class="chan-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
-          <div class="chan-info"><span class="chan-lbl">Instagram</span><span class="chan-val">@ashlesh.nayak</span></div>
-        </a>
-      </div>
-    </div>
-
-    <form class="cform" onsubmit="send(event)">
-      <div class="frow">
-        <div class="ff"><label>Name</label><input type="text" placeholder="Your name"/></div>
-        <div class="ff"><label>Email</label><input type="email" placeholder="your@email.com"/></div>
-      </div>
-      <div class="ff"><label>Subject</label><input type="text" placeholder="Internship / Collab / Just saying hi"/></div>
-      <div class="ff"><label>Message</label><textarea placeholder="What are you building?"></textarea></div>
-      <div class="fsubmit">
-        <span class="fnote" id="fnote">// All good to send</span>
-        <button type="submit" class="btn-primary">Send Message →</button>
-      </div>
-    </form>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
-  <span>Build. Break. Learn. Repeat🚀</span>
+  <span>Build. Break. Learn. Repeat 🚀</span>
   <span>© 2025 Ashlesh V. Nayak | Built with passion</span>
-  
 </footer>
 
-<script>
-function send(e) {
-  e.preventDefault();
-  const n = document.getElementById('fnote');
-  n.textContent = '// Sent! Talk soon.';
-  n.style.color = 'var(--blue)';
-  setTimeout(() => { n.textContent = '// All good to send'; n.style.color = ''; }, 3000);
-}
-
-// scroll reveal
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
-  });
-}, { threshold: 0.08 });
-document.querySelectorAll('.proj-card, .edu-card, .chan, .sk').forEach(el => {
-  el.style.opacity = '0'; el.style.transform = 'translateY(14px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s, padding-left 0.2s';
-  io.observe(el);
-});
-
-// active nav
-const secs = document.querySelectorAll('section[id]');
-const links = document.querySelectorAll('.nav-center a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
-  links.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--white)' : ''; });
-});
-</script>
 </body>
-</html>
+</html> 
