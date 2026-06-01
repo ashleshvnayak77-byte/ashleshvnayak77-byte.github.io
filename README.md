@@ -1,4 +1,4 @@
-# Ashlesh V. Nayak — Portfolio
+# Ashlesh V Nayak — Portfolio
 
 > Personal portfolio website built with pure HTML, CSS, and JavaScript.
 
@@ -15,7 +15,7 @@
 
 ## 👤 About Me
 
-I'm **Ashlesh V. Nayak**, a 2nd Year B.Tech Information Science & Engineering student at **NMAMIT, Nitte** (Batch 2028).
+I'm **Ashlesh V Nayak**, a 2nd Year B.Tech Information Science & Engineering student at **NMAMIT, Nitte** (Batch 2028).
 
 Focused on **AI/ML**, NLP, and building intelligent systems that solve real-world problems.
 
