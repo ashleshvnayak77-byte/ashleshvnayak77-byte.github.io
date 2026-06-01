@@ -84,4 +84,4 @@ portfolio/
 
 This project is licensed under the [MIT License](LICENSE).
 
-© 2025 Ashlesh V. Nayak
+© 2025 Ashlesh V Nayak
